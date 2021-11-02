@@ -1,0 +1,45 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.externalLink {
+    text-decoration: underline;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+pre {
+    padding: 10px;
+    overflow: auto;
+    border-radius: 6px;
+}
+
+blockquote {
+    padding: 16px;
+    margin: 0;
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    font-size: 85%;
+    line-height: 1.45;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+p code {
+    padding: 5px;
+    border-radius: 3px;
+    background-color: #f6f8fa;
+}
