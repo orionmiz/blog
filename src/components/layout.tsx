@@ -12,7 +12,7 @@ export default function Layout({ children, home }: {
   home?: boolean
 }) {
   return (
-    <div className={styles.container}>
+    <div className={home ? styles.narrowContainer : styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
