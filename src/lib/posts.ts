@@ -6,7 +6,11 @@ import hljs from 'highlight.js';
 interface Metadata {
   title: string,
   date: string,
-  tags: string[]
+  tags?: string[]
+}
+
+export interface PostData extends Metadata {
+  id: string,
 }
 
 const postsDirectory = path.join(process.cwd(), 'posts')

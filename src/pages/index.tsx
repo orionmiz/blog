@@ -1,22 +1,15 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
-import Link from 'next/link'
-import Date from '../components/date'
+import { getSortedPostsData, PostData } from '../lib/posts'
 import { GetStaticProps } from 'next'
 import Github from '../components/github'
-import Badge from '../components/badge'
+import PostList from '../components/postlist'
 
 export default function Home({
   allPostsData
 }: {
-  allPostsData: {
-    date: string
-    title: string
-    id: string
-    tags: string[]
-  }[]
+  allPostsData: PostData[]
 }) {
   return (
     <Layout home>
@@ -35,24 +28,7 @@ export default function Home({
           </div>
         </a>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Posts</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title, tags }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              {tags?.map((tag, idx) => (<Badge color='white' key={idx}>{tag}</Badge>))}
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <PostList postsData={allPostsData}/>
       <style jsx>{`
         p {
           text-align: center;
