@@ -21,25 +21,25 @@ export default function Home({
         <p>
           This blog is built with <a href='https://nextjs.org' className='externalLink'>Next.js</a>
         </p>
-        <a href='https://github.com/orionmiz'>
-          <div className='channel'>
+        <div className='channelContainer'>
+          <a href='https://github.com/orionmiz' className='channel'>
             <Github/>
             <div>Github</div>
-          </div>
-        </a>
+          </a>
+        </div>
       </section>
       <PostList postsData={allPostsData}/>
       <style jsx>{`
-        p {
+        p, .channelContainer {
           text-align: center;
         }
         .channel {
-          display: flex;
+          display: inline-flex;
           flex-direction: row;
           justify-content: center;
           align-items: center;
         }
-        .channel > * {
+        .channel > div {
           margin: 0 0 0 5px;
         }
       `}</style>
