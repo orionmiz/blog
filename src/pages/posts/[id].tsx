@@ -37,7 +37,7 @@ export default function Post({
         </div>
         <hr></hr>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-        <p>Thanks for reading ❤️</p>
+        <p>❤️ Thanks for reading ❤️</p>
         <style jsx>{`
           p {
             font-weight: bold;
