@@ -23,5 +23,15 @@ export default function PostList({ postsData, tag }: { postsData: PostData[], ta
         </li>
       ))}
     </ul>
+    <style jsx>{`
+      a {
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: navy;
+        font-weight: 500;
+      }
+    `}</style>
   </section>)
 }
