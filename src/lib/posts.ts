@@ -112,3 +112,31 @@ export function getAllTags() {
 export function getSortedPostsDataByTag(tag: string) {
   return getSortedPostsData().filter(post => post.tags?.includes(tag));
 }
+
+export function getLinkedPostsId(id: string): {
+  prev?: string,
+  next?: string
+} {
+  const regex = /\-[0-9]+$/;
+  const matches = id.match(regex);
+
+  // check whether id ends with number or not
+  if (matches) {
+    const postName = id.replace(regex, '');
+    const order = parseInt(matches[0].slice(1));
+
+    const prev = order <= 1 ? undefined : `${postName}-${order - 1}`;
+    const next = `${postName}-${order + 1}`;
+
+    return { prev, next };
+  }
+  return {};
+}
+
+export function isExistingPost(id: string) {
+  if (!id)
+    return false;
+
+  const fileNames = fs.readdirSync(postsDirectory);
+  return fileNames.includes(`${id}.md`);
+}

@@ -7,9 +7,11 @@ import Link from 'next/link'
 const name = 'orionmiz'
 export const siteTitle = `Orionmiz's blog`
 
-export default function Layout({ children, home }: {
+export default function Layout({ children, home, prevPostId, nextPostId }: {
   children: React.ReactNode,
-  home?: boolean
+  home?: boolean,
+  prevPostId?: string
+  nextPostId?: string
 }) {
   return (
     <div className={home ? styles.narrowContainer : styles.container}>
@@ -64,13 +66,23 @@ export default function Layout({ children, home }: {
         )}
       </header>
       <main>{children}</main>
+      <footer>
       {!home && (
         <div className={styles.backToHome}>
+          {prevPostId ? (
+          <Link href={`/posts/${prevPostId}`}>
+            <a>← Go to Prev Post</a>
+          </Link>) : <div/>}
           <Link href="/">
-            <a>← Back to home</a>
+            <a>Back to home</a>
           </Link>
+          {nextPostId ? (
+          <Link href={`/posts/${nextPostId}`}>
+            <a>Go to Next Post →</a>
+          </Link>) : <div/>}
         </div>
       )}
+      </footer>
     </div>
   )
 }
